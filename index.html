@@ -13,13 +13,24 @@
     </div>
 
     <script type="text/javascript">
-        fetch('//api.openweathermap.org/data/2.5/weather?q=lublin&APPID=0b3d75e5a49f2a267f054a0a60bed6f3')
-            .then(response => response.json())
+    const request = {
+        method:'POST'
+
+    }
+        fetch('//api.openweathermap.org/data/2.5/weather?q=lublin&APPID=0b3d75e5a49f2a267f054a0a60bed6f3',
+        request)
+            .then(response =>{
+    
+            return response.json()
+            })
             .then(data => {
                 document.querySelector('.temperature').innerText = data.main.temp
+            })
+            .catch(error =>{
+console.log('mam error' , error)
             })
 
     </script>
 </body>
 
-</html>>
+</html>
